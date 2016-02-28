@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JQuery Gyakorlás</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <script src="js/jquery-2.2.0.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div>
+            <p id="Elso">Hello 1</p>
+            <p id="Masodik">Hello 2</p>
+            <p id="Harmadik">Hello 3</p>
+            
+            <p class="H">Hello 4</p>
+            <p class="H">Hello 5</p>
+            <p class="H">Hello 6</p>
+            
+            <p class="X">Hello 7</p>
+            <p class="X">Hello 8</p>
+            <p class="X">Hello 9</p>
+        </div>
+        
+        <script type="text/javascript">
+            //Először a <head>-ben be kell hivatkozni a JQuery függvénykönyvtárat
+            //ALAPOK
+            //1. Feladat:
+            //Az 'Elso' id-val rendelkező bekezdés tartalmának konzolra íratása JQuery-t használva
+            console.log ("Első Feladat");
+            console.log ("Elso: " + $("#Elso").text());
+            
+            //2. Feladat:
+            //Az 'X' classba tartozó összes DOM elem lekérése és ezek tartalmának
+            //kiíratása egymás után a konzolra
+            console.log ("Második feladat");
+            $(".X").each(
+                function (index) {
+                    console.log (index + ". X classba tartozó DOM elem tartalma: " + $(this).text ());
+                }
+            );
+    
+            //3. Feladat:
+            //Az Összes p HTML elem lekérése és bejárása a dokumentumban
+            console.log ("Harmadik feladat");
+            $("p").each(
+                function (index) {
+                    console.log (index + ". p HTML elem tartalma: " + $(this).text ());
+                }
+            );
+    
+            //4. Feladat:
+            //Az 'Elso' id-val rendelkező és az 'X' classba tartozó elemek bejárása
+            console.log ("Negyedik feladat");
+            $("#Elso,.X").each(
+                function (index) {
+                    console.log (index + ". HTML elem tartalma: " + $(this).text ());
+                }
+            );
+    
+            //BASIC FILTER
+            //5. Feladat:
+            //A dokumentumban az első p elemet válasszuk ki és kérjük le a tartalmát
+            console.log ("Ötödik feladat");
+            console.log ("Első p elem: " + $("p:first").text());
+            
+            //6. Feladat:
+            //A dokumentumban a 2. sorszámú elemet válasszuk ki és kérjük le a tartalmát
+            console.log ("Hatodik feladat");
+            console.log ("2. Sorszámú p elem: " + $("p:eq(2)").text());
+            
+            //7. Feladat:
+            //A dokumentumban a páros sorszámű p elemeket válasszuk ki és kérjük le a tartalmát
+            console.log ("Hetedik feladat");
+            console.log ("Páros sorszámú p elemek:");
+            $("p:even").each(
+                function (index) {
+                    console.log (index + ". HTML elem tartalma: " + $(this).text ());
+                }
+            );
+            
+            //További BASIC FILEREK:
+            //  Sorszáma páratlan: "p:odd"
+            //  Sorszáma nagyobb mint: "p:gt(3)"
+            //  Sorszáma nem egyenlő: "p:not(3)"
+            //  Sorszáma kisebb mint: "p:lt(5)"
+            //  Utolsó elem: "p:last"
+            //  Kiválasztott elem (inkább input mezőkre alkalmazható): "input:focus"
+        </script>
+    </body>
+</html>
